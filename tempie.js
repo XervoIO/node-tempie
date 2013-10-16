@@ -241,8 +241,8 @@ tempie.load = function(name, data, callback) {
       //html-to-text is a little aggressive with the white space removal,
       //so we add placeholders to replace later
       tpl.text = tpl.html
-        .replace(' <', _private.spacePlaceholder + '<')
-        .replace('> ', '>' + _private.spacePlaceholder);
+        .replace(/ </g, _private.spacePlaceholder + '<')
+        .replace(/> /g, '>' + _private.spacePlaceholder);
 
       //Create a text only version
       tpl.text = htmlToText.fromString(tpl.text);
