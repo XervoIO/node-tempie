@@ -19,6 +19,9 @@ async.waterfall([
     assert.equal(tempie.emails.uno.subject, email.subject);
     assert.equal(typeof tempie.emails.uno.html, 'function');
 
+    //Cause the real config to be loaded
+    tempie.config = 'all.json'
+    tempie.reset();
     tempie.load('dos', dosData, cb);
   },
 
