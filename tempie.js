@@ -85,18 +85,13 @@ var _private =  {
     async.waterfall([
       function(cb) {
         fs.exists(file, function(exists) {
-          if(!exists) {
-            return cb(new Error('Emails Configuration Not Found'));
+          if(exists) {
+            tempie.emails = require(file);
           }
 
+          _private.loaded = true;
           cb(null);
         });
-      },
-
-      function(cb) {
-        tempie.emails = require(file);
-        _private.loaded = true;
-        cb(null);
       }
     ], function(err) {
       if(err) {
