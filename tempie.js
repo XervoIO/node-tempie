@@ -258,4 +258,10 @@ tempie.load = function(name, data, callback) {
   });
 };
 
+//Clears the cache and causes the config file to be reloaded
+tempie.reset = function() {
+  _private.loaded = false;
+  tempie.emails = {};
+};
+
 module.exports = tempie;
