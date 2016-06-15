@@ -5,7 +5,7 @@
   "author": "Modulus <feedback@modulus.io>",
   "dependencies": {
     "async": "1.5.2",
-    "handlebars": "~1.0.12",
+    "handlebars": "4.0.5",
     "html-to-text": "0.0.6"
   },
   "devDependencies": {
