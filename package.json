@@ -1,27 +1,8 @@
 {
   "name": "tempie",
   "description": "A delicious way to manage email templates.",
-  "keywords": [
-    "mail",
-    "email",
-    "template",
-    "templates"
-  ],
   "version": "0.0.2",
   "author": "Modulus <feedback@modulus.io>",
-  "maintainers": [
-    "busyrich <richard@modulus.com>"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/onmodulus/node-tempie.git"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/onmodulus/modulus-cli/blob/master/LICENSE-MIT"
-    }
-  ],
   "dependencies": {
     "async": "~0.2.9",
     "handlebars": "~1.0.12",
@@ -30,8 +11,27 @@
   "devDependencies": {
     "async": "~0.2.9"
   },
-  "main": "tempie",
   "engines": {
     "node": ">= 0.8.0"
+  },
+  "keywords": [
+    "email",
+    "mail",
+    "template",
+    "templates"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/onmodulus/modulus-cli/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "tempie",
+  "maintainers": [
+    "busyrich <richard@modulus.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onmodulus/node-tempie.git"
   }
 }
