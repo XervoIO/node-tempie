@@ -1,9 +1,12 @@
+var Path = require('path');
 var assert = require('assert'),
     async = require('async'),
     tempie = require('./../tempie'),
     unoData = {it:1},
     dosData = {it:1},
     tresData = {it:1};
+
+tempie.dir = Path.join(Path.dirname(__filename), 'templates');
 
 async.waterfall([
   function(cb) {
@@ -51,5 +54,6 @@ async.waterfall([
   }
 
 ], function(err) {
-
+  if (err) console.error(err);
+  process.exit(!!err)
 });
