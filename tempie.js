@@ -1,3 +1,4 @@
+var parseDir = require('parse-dir');
 var fs = require('fs'),
     path = require('path'),
     async = require('async'),
@@ -160,6 +161,36 @@ var _private =  {
     ], function(err) {
       callback(err, tpl);
     });
+  },
+
+  /*
+   * Finds, and registers partials for use in handlebars
+   */
+  registerPartials: function(callback) {
+    var partialsDir = path.join(tempie.dir, 'partials');
+
+    fs.exists(partialsDir, function (exists) {
+      if (!exists) return callback();
+
+      parseDir(path.join(partialsDir, '**/*'), function (err, partials) {
+        if (err) return callback(err);
+
+        partials.forEach(function (partial) {
+          var dir, name;
+
+          if (partial.isDirectory) return;
+
+          dir = path.dirname(partial.filepath).replace(partialsDir, '');
+          name = path.join(dir, partial.basename);
+
+          if (name[0] === path.sep) name = name.substr(1);
+
+          handlebars.registerPartial(name, partial.raw);
+        });
+
+        callback();
+      })
+    });
   }
 };
 
@@ -178,6 +209,7 @@ tempie.load = function(name, data, callback) {
   var selected = {};
 
   async.waterfall([
+    _private.registerPartials,
     function(cb) {
       _private.getEmail(name, cb);
     },

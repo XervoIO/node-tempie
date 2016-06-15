@@ -38,8 +38,8 @@ async.waterfall([
 
   function(email, cb) {
     assert.equal(email.subject, 'No Subject');
-    assert.equal(email.html, '<html>\n\t<head>\n\t\t<style>body {\r\n  background-color: #0000bb;\r\n}</style>\n\t</head>\n\t<body><p>This is trial <em>1<em/> of the third email.</p></body>\n</html>');
-    assert.equal(email.text, 'This is trial 1 of the third email.');
+    assert.equal(email.html, '<html>\n\t<head>\n\t\t<style>body {\r\n  background-color: #0000bb;\r\n}</style>\n\t</head>\n\t<body><p>This is trial <em>1<em/> of the third email.</p>\n<p>nested partial</p>\n</body>\n</html>');
+    assert.equal(email.text, 'This is trial 1 of the third email.\n\nnested partial');
 
     unoData.it = 2;
     tempie.load('uno', unoData, cb);
