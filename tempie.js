@@ -6,6 +6,7 @@ var fs = require('fs'),
     htmlToText = require('html-to-text'), //For getting the plain text version of an email
     tempie = {
       dir: 'templates', //templates location
+      partialsDir: 'partials',
       config: 'emails.json',
       base: handlebars.compile( //base HTML
         '<html>\n' +
@@ -167,7 +168,7 @@ var _private =  {
    * Finds, and registers partials for use in handlebars
    */
   registerPartials: function(callback) {
-    var partialsDir = path.join(tempie.dir, 'partials');
+    var partialsDir = path.resolve(path.join(tempie.dir, tempie.partialsDir));
 
     fs.exists(partialsDir, function (exists) {
       if (!exists) return callback();
