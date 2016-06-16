@@ -1,7 +1,7 @@
 {
   "name": "tempie",
   "description": "A delicious way to manage email templates.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "author": "Modulus <feedback@modulus.io>",
   "dependencies": {
     "async": "1.5.2",
