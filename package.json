@@ -4,9 +4,10 @@
   "version": "0.0.2",
   "author": "Modulus <feedback@modulus.io>",
   "dependencies": {
-    "async": "~0.2.9",
-    "handlebars": "~1.0.12",
-    "html-to-text": "0.0.6"
+    "async": "1.5.2",
+    "handlebars": "4.0.5",
+    "html-to-text": "0.0.6",
+    "parse-dir": "0.1.0"
   },
   "devDependencies": {
     "async": "~0.2.9"
